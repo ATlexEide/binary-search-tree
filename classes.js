@@ -2,21 +2,37 @@ export class Tree {
   constructor() {
     this.root = null;
   }
+  checkHigher(node, nodeToCompare) {
+    if (node.data < nodeToCompare.data) {
+      if (!node.right) {
+        node.right = nodeToCompare;
+        nodeToCompare.parent = node;
+        return;
+      } else {
+        this.checkHigher(node.right, nodeToCompare);
+      }
+    }
+    this.checkLower(node, nodeToCompare);
+  }
+  checkLower(node, nodeToCompare) {
+    if (node.data > nodeToCompare.data) {
+      if (!node.left) {
+        node.left = nodeToCompare;
+        nodeToCompare.parent = node;
+        return;
+      } else {
+        this.checkLower(node.left, nodeToCompare);
+      }
+    }
+  }
   buildTree(arr) {
-    let currNode;
     arr.forEach((element) => {
       if (!this.root) {
         this.root = new Node(element, null, true);
-        currNode = this.root;
         return;
       }
-      const newNode = new Node(element, currNode);
-      // Right
-      if (currNode.data < element) {
-        currNode.right = newNode;
-        console.log(currNode);
-        currNode = currNode.right;
-      }
+      const newNode = new Node(element);
+      this.checkHigher(this.root, newNode);
     });
   }
 }

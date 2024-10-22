@@ -23,4 +23,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     return;
   }
 };
-console.log();
+prettyPrint(test.root);
