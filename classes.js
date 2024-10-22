@@ -35,8 +35,6 @@ export class Tree {
         right = right.right;
       }
     }
-    console.table(this);
-    console.log(this.root.right);
     return this.root;
   }
 }
