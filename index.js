@@ -2,7 +2,7 @@ import { Tree } from "./classes.js";
 import { Node } from "./classes.js";
 const test = new Tree();
 const node = new Node();
-const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const testArr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 test.buildTree(testArr);
 
@@ -24,17 +24,3 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 console.log();
-prettyPrint(test.root.left.left.left.left);
-////////////////////////////////////////
-////////////////////////////////////////
-
-console.log(test.root.left.left.left.left.left);
-// console.log(test.root.left.left.left.data);
-// console.log(test.root.left.left.data);
-// console.log(test.root.left.data);
-// console.log(test.root.data);
-// console.log(test.root.right.data);
-// console.log(test.root.right.right.data);
-// console.log(test.root.right.right.right.data);
-// console.log(test.root.right.right.right.right.data);
-// console.log(test.root.right.right.right.right.right.data);
