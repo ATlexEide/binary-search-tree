@@ -10,8 +10,8 @@ export class Tree {
         currNode = this.root;
         return;
       }
-      // Right
       const newNode = new Node(element, currNode);
+      // Right
       if (currNode.data < element) {
         currNode.right = newNode;
         console.log(currNode);
