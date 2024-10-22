@@ -24,3 +24,14 @@ test.buildTree(testArr);
 // prettyPrint(test.root);
 ////////////////////////////////////////
 ////////////////////////////////////////
+
+// console.log(test.root.left.left.left.left.data);
+console.log(test.root.left.left.left);
+console.log(test.root.left.left.data);
+console.log(test.root.left.data);
+console.log(test.root.data);
+console.log(test.root.right.data);
+console.log(test.root.right.right.data);
+console.log(test.root.right.right.right.data);
+console.log(test.root.right.right.right.right.data);
+console.log(test.root.right.right.right.right.right.data);
