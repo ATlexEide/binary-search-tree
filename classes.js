@@ -3,6 +3,7 @@ export class Tree {
     this.root = null;
   }
   buildTree(arr) {
+    // BUG: Fix: left most node is null. Loop does not iterate as intended
     if (!arr) throw "No argument";
     const leftArr = arr;
     const rightArr = arr.splice(arr.length / 2, arr.length);
