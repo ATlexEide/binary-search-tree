@@ -15,5 +15,15 @@ function preOrder(root) {
   preOrder(root.left);
   preOrder(root.right);
 }
-preOrder(test.root);
-console.log(test.root.right);
+console.log("Root: " + test.root.data);
+console.log("------------");
+console.log("Root left: " + test.root.left.data);
+console.log("Root right: " + test.root.right.data);
+console.log("------------");
+// preOrder(test.root);
+test.insert(5);
+console.log("Root: " + test.root.data);
+console.log("------------");
+console.log("Root left: " + test.root.left.left.data);
+console.log("Root right: " + test.root.right.data);
+console.log("------------");

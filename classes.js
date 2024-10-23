@@ -1,6 +1,7 @@
 import { sort } from "./mergeSort.js";
 export class Tree {
   constructor(arr) {
+    // FIXME: Add check to remove duplicates in array
     this.root = null;
     this.array = sort(arr);
   }
@@ -16,8 +17,19 @@ export class Tree {
     root.right = this.buildTree(arr, mid + 1, end);
     return root;
   }
-  insert() {}
-  delete() {}
+  insert(value) {
+    const newNode = new Node(value);
+    const node = this.root;
+    if (newNode.data === node.data) return;
+    if (newNode.data < node.data && newNode.data > node.left.data) {
+      newNode.left = node.left;
+      node.left = newNode;
+    } else if (newNode.data > node.data && newNode.data < node.right.data) {
+      newNode.right = node.right;
+      node.right = newNode;
+    }
+  }
+  delete(value) {}
 }
 
 export class Node {
