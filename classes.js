@@ -16,6 +16,8 @@ export class Tree {
     root.right = this.buildTree(arr, mid + 1, end);
     return root;
   }
+  insert() {}
+  delete() {}
 }
 
 export class Node {
