@@ -1,9 +1,11 @@
+import { sort } from "./mergeSort.js";
 export class Tree {
-  constructor() {
+  constructor(arr) {
     this.root = null;
+    this.array = sort(arr);
   }
 
-  buildTree(arr, start = 0, end = arr.length - 1) {
+  buildTree(arr = this.array, start = 0, end = arr.length - 1) {
     if (start > end) return null;
     let mid = Math.floor((start + end) / 2);
     const root = new Node(arr[mid]);
@@ -15,6 +17,7 @@ export class Tree {
     return root;
   }
 }
+
 export class Node {
   constructor(data) {
     this.left = null;
