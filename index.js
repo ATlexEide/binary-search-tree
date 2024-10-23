@@ -7,22 +7,6 @@ const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 test.buildTree(testArr);
 
-////////////////////////////////////////
-/////// FOR TESTING
-////////////////////////////////////////
-const prettyPrint = (node, prefix = "", isLeft = true) => {
-  if (!node) {
-    return;
-  }
-  if (node.right) {
-    prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-    return;
-  }
-  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
-  if (node.left) {
-    prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-    return;
-  }
-};
-prettyPrint(test.root);
+console.log(test.root);
+console.log(test.root.left);
 console.log(test.root.right);
