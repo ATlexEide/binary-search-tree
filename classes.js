@@ -36,6 +36,7 @@ export class Tree {
   delete(value, node = this.root, parent = new Node(), left) {
     const side = left ? "left" : "right";
     const newNode = typeof value === "object" ? value : new Node(value);
+    // BUG: I think this messes up the links on the assigned node, need to sketch out logic later
     if (newNode.data === node.data) {
       parent[side] = node.left;
       return;
