@@ -1,5 +1,5 @@
 import { Tree } from "./classes.js";
-const arr = [1, 6345, 7, 4, 23, 8, 9, 4, 3, 5, 67, 324];
+const arr = [1, 6345, 7, 4, 23, 8, 9, 3, 5, 67, 324];
 // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const test = new Tree(arr);
@@ -18,9 +18,10 @@ console.log("Root left: " + test.root.left.data);
 console.log("Root right: " + test.root.right.data);
 console.log("------------");
 // preOrder(test.root);
-test.insert(5);
+test.insert(6);
 console.log("Root: " + test.root.data);
 console.log("------------");
 console.log("Root left: " + test.root.left.data);
 console.log("Root right: " + test.root.right.data);
 console.log("------------");
+console.log(test.root.left.right.right.left);
