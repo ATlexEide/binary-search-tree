@@ -33,7 +33,13 @@ export class Tree {
       this.insert(value, node.right);
     }
   }
-  delete(value) {}
+  delete(value, node = this.root) {
+    const newNode = new Node(value);
+    if (newNode.data === node.data) {
+      this.root = node.left;
+      return;
+    }
+  }
 }
 
 export class Node {
