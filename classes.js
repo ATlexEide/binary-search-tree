@@ -32,7 +32,6 @@ export class Tree {
     } else if (newNode.data > node.data) {
       this.insert(value, node.right);
     }
-    return;
   }
   delete(value) {}
 }
