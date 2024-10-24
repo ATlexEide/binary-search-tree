@@ -4,7 +4,8 @@ const arr = [1, 6345, 7, 4, 23, 8, 9, 4, 3, 5, 67, 324];
 
 const test = new Tree(arr);
 test.buildTree();
-
+console.log(arr);
+console.log(test.array);
 function preOrder(root) {
   if (root === null) return;
   console.log(root.data);
@@ -20,6 +21,6 @@ console.log("------------");
 test.insert(5);
 console.log("Root: " + test.root.data);
 console.log("------------");
-console.log("Root left: " + test.root.left.left.data);
+console.log("Root left: " + test.root.left.data);
 console.log("Root right: " + test.root.right.data);
 console.log("------------");
