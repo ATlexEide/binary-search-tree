@@ -17,17 +17,22 @@ export class Tree {
     root.right = this.buildTree(arr, mid + 1, end);
     return root;
   }
-  insert(value) {
+  insert(value, node = this.root) {
     const newNode = new Node(value);
-    const node = this.root;
     if (newNode.data === node.data) return;
-    if (newNode.data < node.data && newNode.data > node.left.data) {
-      newNode.left = node.left;
+    if (newNode.data < node.data && !node.left) {
       node.left = newNode;
-    } else if (newNode.data > node.data && newNode.data < node.right.data) {
-      newNode.right = node.right;
-      node.right = newNode;
+      return;
+    } else if (newNode.data < node.data) {
+      this.insert(value, node.left);
     }
+    if (newNode.data > node.data && !node.right) {
+      node.right = newNode;
+      return;
+    } else if (newNode.data > node.data) {
+      this.insert(value, node.right);
+    }
+    return;
   }
   delete(value) {}
 }
