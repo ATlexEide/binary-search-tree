@@ -33,11 +33,23 @@ export class Tree {
       this.insert(value, node.right);
     }
   }
-  delete(value, node = this.root) {
-    const newNode = new Node(value);
+  delete(value, node = this.root, parent = new Node(), left) {
+    const side = left ? "left" : "right";
+    const newNode = typeof value === "object" ? value : new Node(value);
     if (newNode.data === node.data) {
-      this.root = node.left;
+      parent[side] = node.left;
       return;
+    }
+    if (
+      (newNode.data < node.data && !node.left) ||
+      (newNode.data > node.data && !node.right)
+    ) {
+      return;
+    }
+    if (newNode.data < node.data) {
+      this.delete(newNode, node.left, node, true);
+    } else if (newNode.data > node.data) {
+      this.delete(newNode, node.right, node, false);
     }
   }
 }

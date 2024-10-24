@@ -4,21 +4,22 @@ const arr = [1, 6345, 7, 4, 23, 8, 9, 3, 5, 67, 324];
 
 const test = new Tree(arr);
 test.buildTree();
-console.log(arr);
-console.log(test.array);
+// console.log(arr);
+// console.log(test.array);
 function preOrder(root) {
   if (root === null) return;
   console.log(root.data);
   preOrder(root.left);
   preOrder(root.right);
 }
-console.log("Root: " + test.root.data);
-console.log("------------");
-console.log("Root left: " + test.root.left.data);
-console.log("Root right: " + test.root.right.data);
-console.log("------------");
+// console.log("Root: " + test.root.data);
+// console.log("------------");
+// console.log("Root left: " + test.root.left.data);
+// console.log("Root right: " + test.root.right.data);
+// console.log("------------");
 // preOrder(test.root);
-test.delete(8);
+test.delete(9);
+console.log(test.root);
 console.log("Root: " + test.root.data);
 console.log("------------");
 console.log("Root left: " + test.root.left.data);
