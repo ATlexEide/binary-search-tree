@@ -37,10 +37,14 @@ export class Tree {
     const side = left ? "left" : "right";
     const newNode = typeof value === "object" ? value : new Node(value);
     // BUG: I think this messes up the links on the assigned node, need to sketch out logic later
-    if (newNode.data === node.data) {
-      parent[side] = node.left;
-      return;
+    if (side === "left" && newNode.data === node.data) {
+      parent[side] = node.right;
+      parent[side].left = node.left;
     }
+    if (side === "right" && newNode.data === node.data) {
+      parent[side] = node.left;
+    }
+
     if (
       (newNode.data < node.data && !node.left) ||
       (newNode.data > node.data && !node.right)
