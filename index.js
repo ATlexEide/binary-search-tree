@@ -12,23 +12,8 @@ function preOrder(root) {
   preOrder(root.left);
   preOrder(root.right);
 }
-// console.log("Root: " + test.root.data);
-// console.log("------------");
-// console.log("Root left: " + test.root.left.data);
-// console.log("Root right: " + test.root.right.data);
-// console.log("------------");
-// preOrder(test.root);
+
 test.delete();
-console.log(test.root);
-console.log(test.root.right);
-console.log(test.root.right.left);
-console.log(test.root.right.right);
-// console.log("Root: " + test.root.data);
-// console.log("------------");
-// console.log("Root left: " + test.root.left.data);
-// console.log("Root right: " + test.root.right.data);
-// console.log("------------");
-// console.log(test.root.left.right.right);
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
