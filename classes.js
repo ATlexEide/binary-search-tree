@@ -15,6 +15,8 @@ export class Tree {
     }
     root.left = this.buildTree(arr, start, mid - 1);
     root.right = this.buildTree(arr, mid + 1, end);
+    console.clear();
+    prettyPrint(this.root);
     return root;
   }
   insert(value, node = this.root) {
@@ -32,28 +34,37 @@ export class Tree {
     } else if (newNode.data > node.data) {
       this.insert(value, node.right);
     }
+    console.clear();
+    prettyPrint(this.root);
   }
   delete(value, node = this.root, parent = new Node(), left) {
     const side = left ? "left" : "right";
     const newNode = typeof value === "object" ? value : new Node(value);
-    // BUG: I think this messes up the links on the assigned node, need to sketch out logic later
     if (side === "left" && newNode.data === node.data) {
       const cached = node.left;
       parent[side] = node.right;
-      let tmp = node.right;
-      while (tmp.left) {
-        tmp = tmp.left;
+      if (node.right) {
+        let tmp = node.right;
+        while (tmp.left) {
+          tmp = tmp.left;
+        }
+        tmp.left = cached;
+      } else {
+        parent.left = cached;
       }
-      tmp.left = cached;
     }
     if (side === "right" && newNode.data === node.data) {
       const cached = node.right;
       parent[side] = node.left;
-      let tmp = node.left;
-      while (tmp.right) {
-        tmp = tmp.right;
+      if (node.left) {
+        let tmp = node.left;
+        while (tmp.right) {
+          tmp = tmp.right;
+        }
+        tmp.right = cached;
+      } else {
+        parent.right = cached;
       }
-      tmp.right = cached;
     }
 
     if (
@@ -67,6 +78,8 @@ export class Tree {
     } else if (newNode.data > node.data) {
       this.delete(newNode, node.right, node, false);
     }
+    console.clear();
+    prettyPrint(this.root);
   }
 }
 
@@ -77,3 +90,16 @@ export class Node {
     this.data = data;
   }
 }
+
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+  if (node === null) {
+    return;
+  }
+  if (node.right !== null) {
+    prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+  }
+  console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+  if (node.left !== null) {
+    prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+  }
+};
