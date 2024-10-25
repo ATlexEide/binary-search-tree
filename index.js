@@ -18,7 +18,8 @@ function preOrder(root) {
 // console.log("Root right: " + test.root.right.data);
 // console.log("------------");
 // preOrder(test.root);
-test.delete(23);
+test.delete();
+console.log(test.root);
 console.log(test.root.right);
 console.log(test.root.right.left);
 console.log(test.root.right.right);

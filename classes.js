@@ -43,6 +43,7 @@ export class Tree {
     }
     if (side === "right" && newNode.data === node.data) {
       parent[side] = node.left;
+      parent[side].right = node.right;
     }
 
     if (
