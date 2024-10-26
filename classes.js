@@ -81,7 +81,24 @@ export class Tree {
     console.clear();
     prettyPrint(this.root);
   }
-  find(value, node = this.root) {}
+  find(value, node = this.root) {
+    if (!node) {
+      console.error(`No node with value: "${value}"`);
+      return;
+    }
+    if (node.data === value) {
+      console.log(node);
+      return node;
+    }
+    if (value < node.data) {
+      this.find(value, node.left);
+      return;
+    }
+    if (value > node.data) {
+      this.find(value, node.right);
+      return;
+    }
+  }
 }
 
 export class Node {

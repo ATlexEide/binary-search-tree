@@ -10,3 +10,4 @@ test.insert(15);
 test.delete(22);
 test.delete(22);
 test.insert(20);
+test.find(555);
