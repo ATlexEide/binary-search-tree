@@ -4,6 +4,9 @@ export class Tree {
     // FIXME: Add check to remove duplicates in array
     this.root = null;
     this.array = sort(arr);
+    while (this.array.includes(undefined)) {
+      this.array.splice(this.array.indexOf(undefined), 1);
+    }
   }
 
   buildTree(arr = this.array, start = 0, end = arr.length - 1) {
