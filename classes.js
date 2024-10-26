@@ -81,6 +81,7 @@ export class Tree {
     console.clear();
     prettyPrint(this.root);
   }
+  find(value, node = this.root) {}
 }
 
 export class Node {
