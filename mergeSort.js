@@ -12,11 +12,7 @@ function merge(left, right) {
   let rightIndex = 0;
   while (leftIndex < left.length && rightIndex < right.length) {
     // BUG: Some duplicates slips through, idiot, i think it might be because they dont get compared for some reason? Thats a problem for future me tho, its time to sleep
-    if (left[leftIndex] === right[rightIndex]) {
-      tempArr.push(left[leftIndex]);
-      leftIndex++;
-      rightIndex++;
-    }
+
     if (left[leftIndex] < right[rightIndex]) {
       tempArr.push(left[leftIndex]);
       leftIndex++;

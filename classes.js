@@ -4,11 +4,15 @@ export class Tree {
     // FIXME: Add check to remove duplicates in array
     this.root = null;
     this.array = sort(arr);
-    while (this.array.includes(undefined)) {
-      this.array.splice(this.array.indexOf(undefined), 1);
+    let index = 0;
+    while (index < this.array.length) {
+      if (this.array[index] === this.array[index + 1]) {
+        this.array.splice(index, 1);
+        continue;
+      }
+      index++;
     }
   }
-
   buildTree(arr = this.array, start = 0, end = arr.length - 1) {
     if (start > end) return null;
     let mid = Math.floor((start + end) / 2);
