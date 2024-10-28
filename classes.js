@@ -93,19 +93,40 @@ export class Tree {
       return;
     }
     if (node.data === value) {
-      console.log(node);
+      // console.log(node);
       return node;
     }
     if (value < node.data) {
-      this.find(value, node.left);
-      return;
+      return this.find(value, node.left);
     }
     if (value > node.data) {
-      this.find(value, node.right);
-      return;
+      return this.find(value, node.right);
     }
   }
-  height(node) {}
+  height(value) {
+    const node = this.find(value);
+    let tmp = node.left;
+    let leftHeight = 0;
+    if (tmp) {
+      leftHeight = 1;
+      while (tmp.left) {
+        tmp = tmp.left;
+        leftHeight++;
+      }
+    }
+    tmp = node.right;
+    let rightHeight = 0;
+    if (tmp) {
+      rightHeight = 1;
+      while (tmp.right) {
+        tmp = tmp.right;
+        rightHeight++;
+      }
+    }
+    const height = leftHeight > rightHeight ? leftHeight : rightHeight;
+    console.log(height);
+    return height;
+  }
 }
 
 export class Node {
