@@ -105,6 +105,7 @@ export class Tree {
       return;
     }
   }
+  height(node) {}
 }
 
 export class Node {
