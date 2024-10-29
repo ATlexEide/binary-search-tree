@@ -127,7 +127,26 @@ export class Tree {
     console.log(height);
     return height;
   }
-  depth(value, node = this.root, _depth = 0) {}
+  depth(value, node = this.root, _depth = 0) {
+    let depth = _depth;
+    if (!node) {
+      console.error(`No node with value: "${value}"`);
+      return;
+    }
+    if (node.data === value) {
+      // console.log(node);
+      return depth;
+    }
+    if (value < node.data) {
+      depth++;
+      return this.depth(value, node.left, depth);
+    }
+    if (value > node.data) {
+      depth++;
+      return this.depth(value, node.right, depth);
+    }
+    return depth;
+  }
 }
 
 export class Node {
