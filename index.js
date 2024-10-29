@@ -7,4 +7,5 @@ const arr = [
 // const arr = [5, 5, 56, 57, 5, 5];
 const test = new Tree(arr);
 test.buildTree();
-test.height(5);
+// test.height(5);
+console.log(test.depth(767));
