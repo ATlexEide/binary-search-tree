@@ -127,6 +127,7 @@ export class Tree {
     console.log(height);
     return height;
   }
+  depth(value, node = this.root, _depth = 0) {}
 }
 
 export class Node {
