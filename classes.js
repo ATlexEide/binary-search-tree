@@ -147,7 +147,21 @@ export class Tree {
     }
     return depth;
   }
-  levelOrder(node) {}
+  levelOrder(_queue = [this.root], index = 0) {
+    index = index;
+    let queue = _queue;
+    let left = queue[index].left ?? null;
+    let right = queue[index].right ?? null;
+    console.table(queue);
+    // queue.shift();
+    // FIXME: It adds to the queue, but its fucky with leaf nodes
+    if (!left && !right) {
+      this.levelOrder(queue, ++index);
+    }
+    if (left) queue.push(left);
+    if (right) queue.push(right);
+    this.levelOrder(queue, ++index);
+  }
 }
 
 export class Node {
