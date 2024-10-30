@@ -147,6 +147,7 @@ export class Tree {
     }
     return depth;
   }
+  levelOrder(node) {}
 }
 
 export class Node {
