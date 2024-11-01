@@ -8,6 +8,6 @@ const arr = [
 const test = new Tree(arr);
 test.buildTree();
 // test.height(5);
-// test.levelOrder();
+test.levelOrder();
 // test.insert(77);
 console.log(test.size);

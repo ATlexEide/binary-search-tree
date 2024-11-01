@@ -156,18 +156,23 @@ export class Tree {
   levelOrder(_queue = [this.root], index = 0) {
     index = index;
     let queue = _queue;
-    if (queue.length) return;
-    let left = queue[index].left ?? null;
-    let right = queue[index].right ?? null;
+    let left;
+    let right;
+    if (index < queue.length) {
+      left = queue[index].left ?? null;
+      right = queue[index].right ?? null;
+      if (!left && !right) {
+        return this.levelOrder(queue, ++index);
+      }
+      if (left) queue.push(left);
+      if (right) queue.push(right);
+      return this.levelOrder(queue, ++index);
+    } else {
+      return;
+    }
     console.table(queue);
     // queue.shift();
     // FIXME: It adds to the queue, but its fucky with leaf nodes
-    if (!left && !right) {
-      this.levelOrder(queue, ++index);
-    }
-    if (left) queue.push(left);
-    if (right) queue.push(right);
-    this.levelOrder(queue, ++index);
   }
 }
 
