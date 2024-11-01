@@ -171,8 +171,7 @@ export class Tree {
       console.table(queue);
       return;
     }
-    // queue.shift();
-    // FIXME: It adds to the queue, but its fucky with leaf nodes
+    // TODO: Add Rest of the logic (what to do with the queue)
   }
 }
 
