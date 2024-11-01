@@ -168,9 +168,9 @@ export class Tree {
       if (right) queue.push(right);
       return this.levelOrder(queue, ++index);
     } else {
+      console.table(queue);
       return;
     }
-    console.table(queue);
     // queue.shift();
     // FIXME: It adds to the queue, but its fucky with leaf nodes
   }
