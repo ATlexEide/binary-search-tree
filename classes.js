@@ -3,6 +3,7 @@ export class Tree {
   constructor(arr) {
     this.root = null;
     this.array = sort(arr);
+    this.size = 0;
     let index = 0;
     while (index < this.array.length) {
       if (this.array[index] === this.array[index + 1]) {
@@ -19,6 +20,7 @@ export class Tree {
     if (!this.root) {
       this.root = root;
     }
+    this.size++;
     root.left = this.buildTree(arr, start, mid - 1);
     root.right = this.buildTree(arr, mid + 1, end);
     console.clear();
@@ -30,12 +32,14 @@ export class Tree {
     if (newNode.data === node.data) return;
     if (newNode.data < node.data && !node.left) {
       node.left = newNode;
+      this.size++;
       return;
     } else if (newNode.data < node.data) {
       this.insert(value, node.left);
     }
     if (newNode.data > node.data && !node.right) {
       node.right = newNode;
+      this.size++;
       return;
     } else if (newNode.data > node.data) {
       this.insert(value, node.right);
@@ -150,6 +154,7 @@ export class Tree {
   levelOrder(_queue = [this.root], index = 0) {
     index = index;
     let queue = _queue;
+    if (queue.length) return;
     let left = queue[index].left ?? null;
     let right = queue[index].right ?? null;
     console.table(queue);
