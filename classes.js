@@ -51,6 +51,7 @@ export class Tree {
     const side = left ? "left" : "right";
     const newNode = typeof value === "object" ? value : new Node(value);
     if (side === "left" && newNode.data === node.data) {
+      this.size--;
       const cached = node.left;
       parent[side] = node.right;
       if (node.right) {
@@ -64,6 +65,7 @@ export class Tree {
       }
     }
     if (side === "right" && newNode.data === node.data) {
+      this.size--;
       const cached = node.right;
       parent[side] = node.left;
       if (node.left) {
