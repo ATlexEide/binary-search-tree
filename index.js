@@ -9,4 +9,3 @@ test.buildTree();
 // test.height(5);
 test.levelOrder();
 // test.insert(77);
-console.log(test.size);

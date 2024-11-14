@@ -99,7 +99,6 @@ export class Tree {
       return;
     }
     if (node.data === value) {
-      // console.log(node);
       return node;
     }
     if (value < node.data) {
@@ -140,7 +139,6 @@ export class Tree {
       return;
     }
     if (node.data === value) {
-      // console.log(node);
       return depth;
     }
     if (value < node.data) {
