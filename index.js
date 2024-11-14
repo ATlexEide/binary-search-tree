@@ -5,6 +5,4 @@ const arr = [
 ];
 const test = new Tree(arr);
 test.buildTree();
-// test.height(5);
 test.levelOrder();
-// test.insert(77);
