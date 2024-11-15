@@ -160,13 +160,20 @@ export class Tree {
       left = queue[index].left ?? null;
       right = queue[index].right ?? null;
       if (!left && !right) {
+        callback(queue[index]);
+        queue.shift();
+        index--;
         return this.levelOrder(callback, queue, ++index);
       }
       if (left) queue.push(left);
       if (right) queue.push(right);
+      callback(queue[index]);
+      queue.shift();
+      index--;
       return this.levelOrder(callback, queue, ++index);
     } else {
-      queue.forEach((node) => callback(node));
+      // queue.forEach((node) => callback(node));
+      console.log(queue);
       return;
     }
 

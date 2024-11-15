@@ -5,7 +5,7 @@ const arr = [
 ];
 const test = new Tree(arr);
 test.buildTree();
-test.levelOrder(logRight);
+test.levelOrder(logData);
 function logData(node) {
   console.log(node.data);
 }
