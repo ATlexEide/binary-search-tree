@@ -176,8 +176,6 @@ export class Tree {
       console.log(queue);
       return;
     }
-
-    // TODO: Add Rest of the logic (what to do with the queue)
   }
 }
 
