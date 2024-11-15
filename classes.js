@@ -99,7 +99,6 @@ export class Tree {
       return;
     }
     if (node.data === value) {
-      // console.log(node);
       return node;
     }
     if (value < node.data) {
@@ -140,7 +139,6 @@ export class Tree {
       return;
     }
     if (node.data === value) {
-      // console.log(node);
       return depth;
     }
     if (value < node.data) {
@@ -153,7 +151,7 @@ export class Tree {
     }
     return depth;
   }
-  levelOrder(_queue = [this.root], index = 0) {
+  levelOrder(callback, _queue = [this.root], index = 0) {
     index = index;
     let queue = _queue;
     let left;
@@ -162,16 +160,22 @@ export class Tree {
       left = queue[index].left ?? null;
       right = queue[index].right ?? null;
       if (!left && !right) {
-        return this.levelOrder(queue, ++index);
+        callback(queue[index]);
+        queue.shift();
+        index--;
+        return this.levelOrder(callback, queue, ++index);
       }
       if (left) queue.push(left);
       if (right) queue.push(right);
-      return this.levelOrder(queue, ++index);
+      callback(queue[index]);
+      queue.shift();
+      index--;
+      return this.levelOrder(callback, queue, ++index);
     } else {
-      console.table(queue);
+      // queue.forEach((node) => callback(node));
+      console.log(queue);
       return;
     }
-    // TODO: Add Rest of the logic (what to do with the queue)
   }
 }
 
