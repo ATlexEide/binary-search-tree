@@ -180,6 +180,9 @@ export class Tree {
   logData(node) {
     console.log(node.data);
   }
+  logNode(node) {
+    console.log(node);
+  }
 }
 
 export class Node {
