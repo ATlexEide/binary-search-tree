@@ -187,7 +187,7 @@ export class Tree {
     console.log(node.right);
   }
   logLeftChild(node) {
-    console.log(node.right);
+    console.log(node.left);
   }
 }
 
