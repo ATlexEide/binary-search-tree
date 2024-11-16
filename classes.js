@@ -172,10 +172,22 @@ export class Tree {
       index--;
       return this.levelOrder(callback, queue, ++index);
     } else {
-      // queue.forEach((node) => callback(node));
       console.log(queue);
       return;
     }
+  }
+  // Callback funcs
+  logData(node) {
+    console.log(node.data);
+  }
+  logNode(node) {
+    console.log(node);
+  }
+  logRightChild(node) {
+    console.log(node.right);
+  }
+  logLeftChild(node) {
+    console.log(node.left);
   }
 }
 
