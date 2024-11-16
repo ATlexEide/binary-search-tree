@@ -9,6 +9,3 @@ test.levelOrder(logData);
 function logData(node) {
   console.log(node.data);
 }
-function logRight(node) {
-  console.log(node.right);
-}

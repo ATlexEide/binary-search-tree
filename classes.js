@@ -176,6 +176,10 @@ export class Tree {
       return;
     }
   }
+  // Callback funcs
+  logData(node) {
+    console.log(node.data);
+  }
 }
 
 export class Node {
