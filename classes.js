@@ -172,7 +172,6 @@ export class Tree {
       index--;
       return this.levelOrder(callback, queue, ++index);
     } else {
-      // queue.forEach((node) => callback(node));
       console.log(queue);
       return;
     }
