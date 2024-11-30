@@ -191,14 +191,6 @@ export class Tree {
   }
 }
 
-export class Node {
-  constructor(data) {
-    this.left = null;
-    this.right = null;
-    this.data = data;
-  }
-}
-
 const prettyPrint = (node, prefix = "", isLeft = true) => {
   if (node === null) {
     return;
