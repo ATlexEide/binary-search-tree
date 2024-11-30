@@ -1,4 +1,5 @@
 import { sort } from "./mergeSort.js";
+import { Node } from "./node.js";
 export class Tree {
   constructor(arr) {
     this.root = null;
