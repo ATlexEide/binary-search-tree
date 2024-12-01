@@ -1,4 +1,5 @@
 import { sort } from "./mergeSort.js";
+import { Node } from "./node.js";
 export class Tree {
   constructor(arr) {
     this.root = null;
@@ -188,14 +189,6 @@ export class Tree {
   }
   logLeftChild(node) {
     console.log(node.left);
-  }
-}
-
-export class Node {
-  constructor(data) {
-    this.left = null;
-    this.right = null;
-    this.data = data;
   }
 }
 
