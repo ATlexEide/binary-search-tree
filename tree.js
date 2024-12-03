@@ -178,6 +178,7 @@ export class Tree {
       return;
     }
   }
+  inOrder() {}
   // Callback funcs
   logData(node) {
     console.log(node.data);
