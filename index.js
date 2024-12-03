@@ -5,4 +5,4 @@ const arr = [
 ];
 const test = new Tree(arr);
 test.buildTree();
-test.levelOrder(test.logLeftChild);
+test.levelOrder(test.logData);

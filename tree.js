@@ -153,6 +153,7 @@ export class Tree {
     return depth;
   }
   levelOrder(callback, _queue = [this.root], index = 0) {
+    if (!callback) throw new Error("No callback function provided");
     index = index;
     let queue = _queue;
     let left;
