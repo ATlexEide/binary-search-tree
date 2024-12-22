@@ -194,7 +194,7 @@ export class Tree {
   inOrder(callback, _queue = [], node = this.locateLeft()) {
     if (!callback) throw new Error(noCallbackError);
     let queue = _queue;
-    let node = node;
+    node = node;
     console.log(node);
     queue.push(node);
     if (node.right) {
