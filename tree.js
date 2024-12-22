@@ -1,5 +1,6 @@
 import { sort } from "./mergeSort.js";
 import { Node } from "./node.js";
+const noCallbackError = "No callback function provided";
 export class Tree {
   constructor(arr) {
     this.root = null;
@@ -153,7 +154,7 @@ export class Tree {
     return depth;
   }
   levelOrder(callback, _queue = [this.root], index = 0) {
-    if (!callback) throw new Error("No callback function provided");
+    if (!callback) throw new Error(noCallbackError);
     index = index;
     let queue = _queue;
     let left;
@@ -178,7 +179,28 @@ export class Tree {
       return;
     }
   }
-  inOrder() {}
+  locateLeft(_parent, node = this.root) {
+    let parent = _parent;
+
+    let tmp = node.left;
+    if (tmp) {
+      while (tmp.left) {
+        parent = tmp;
+        tmp = tmp.left;
+      }
+      return tmp;
+    }
+  }
+  inOrder(callback, _queue = [], node = this.locateLeft()) {
+    if (!callback) throw new Error(noCallbackError);
+    let queue = _queue;
+    node = node;
+    console.log(node);
+    queue.push(node);
+    if (node.right) {
+      inOrder(callback, queue, node.right);
+    }
+  }
   // Callback funcs
   logData(node) {
     console.log(node.data);
